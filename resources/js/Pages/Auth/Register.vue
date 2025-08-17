@@ -28,7 +28,7 @@ const submit = () => {
                 <Link href="/">
                 <img src="/assets/img/logo_fundo_branco.png" alt="StartupConnect" class="logo-principal w-auto">
                 </Link>
-                <p class="text-gray-500 mt-4">Bem-vindo de volta! Acesse sua conta.</p>
+                <p class="text-gray-500 mt-4">Cria sua conta para ter acesso a novas conexões..</p>
             </div>
 
             <div class="bg-white rounded-xl shadow-lg p-8">

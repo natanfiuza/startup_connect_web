@@ -38,6 +38,8 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             //
+            'canResetPassword' => \Illuminate\Support\Facades\Route::has('password.request'),
+
         ];
     }
 }

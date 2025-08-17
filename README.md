@@ -46,6 +46,15 @@ Abaixo está a lista das principais tecnologias e bibliotecas que formam a espin
 | **Inertia.js**   | [inertiajs.com](https://inertiajs.com/)     | A "cola mágica" que conecta um back-end monolítico (Laravel) a um front-end moderno (Vue.js) sem a necessidade de construir uma API complexa. | **+:** Mantém a sensação de uma SPA com a simplicidade do desenvolvimento monolítico. \<br\> **-:** Acoplamento entre front e back.       | É o pilar da nossa arquitetura, permitindo um desenvolvimento extremamente produtivo e organizado.                                                    |
 | **Tailwind CSS** | [tailwindcss.com](https://tailwindcss.com/) | Framework CSS utility-first para criar designs customizados rapidamente sem sair do HTML.                                                     | **+:** Altamente customizável, design rápido, consistência visual. \<br\> **-:** Classes podem "poluir" o HTML.                           | Ideal para o visual moderno e minimalista que buscamos, permitindo construir a UI de forma ágil e consistente.                                        |
 | **Vite**         | [vitejs.dev](https://vitejs.dev/)           | Ferramenta de build de front-end de nova geração que oferece uma experiência de desenvolvimento extremamente rápida.                          | **+:** Hot Module Replacement (HMR) quase instantâneo, rápido. \<br\> **-:** Ecossistema de plugins mais novo.                            | O Laravel utiliza o Vite por padrão para compilar os assets, garantindo um ambiente de desenvolvimento ágil e responsivo.                             |
+| **Heroicons** | [heroicons.com](https://heroicons.com/) | Coleção de ícones SVG de alta qualidade, feitos pelos criadores do Tailwind CSS. | **+:** Design minimalista, otimizado para Tailwind, fácil de usar. \<br\> **-:** Variedade menor que bibliotecas gigantes. | Integração perfeita com o stack (Tailwind/Vue) e o estilo visual moderno e limpo que buscamos para o projeto. |
+
+### Instalar o Pacote Heroicons via NPM
+
+No terminal (já na pasta do projeto), execute o seguinte comando para instalar o Heroicons para Vue:
+
+```bash
+npm install @heroicons/vue
+```
 
 ## Como Começar
 

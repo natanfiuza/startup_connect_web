@@ -2,6 +2,8 @@
 
 ### *Conecte. Cresça. Prospere.*
 
+<img src="./public/assets/img/logo_completo.png" width="300">
+
 **URL do Projeto:** [https://startupconnect.natanfiuza.dev.br](https://startupconnect.natanfiuza.dev.br)
 
 ## Descrição

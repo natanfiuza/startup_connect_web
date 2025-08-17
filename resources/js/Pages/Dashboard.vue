@@ -16,23 +16,27 @@ import {
     EnvelopeIcon
 } from '@heroicons/vue/24/outline';
 
-// --- DADOS DE EXEMPLO ---
-// No futuro, estes dados virão do nosso backend Laravel.
-// Por agora, vamos usá-los para construir a interface.
-const stats = {
-    connections: { value: 0, change: '+12%' },
-    posts: { value: 5, change: '+8%' },
-    engagement: { value: 130, change: '+25%' },
-    events: { value: 3, change: '+2' },
-};
+// const stats = {
+//     connections: { value: 0, change: '+12%' },
+//     posts: { value: 5, change: '+8%' },
+//     engagement: { value: 130, change: '+25%' },
+//     events: { value: 3, change: '+2' },
+// };
 
-const recentActivity = [
-    { type: 'Atualização', content: 'Cerebro robo', likes: 0, comments: 0, shares: 0, time: '16 ago' },
-    { type: 'Atualização', content: 'Novo teste', likes: 0, comments: 0, shares: 0, time: '16 ago' },
-    { type: 'Atualização', content: 'Lançamos nossa nova funcionalidade de análise de risco em tempo real! A tecnologia permite aprovação de crédito em menos de 2 minutos. O futuro do fintech é agora!', likes: 0, comments: 0, shares: 0, time: '16 ago' },
-];
+// const recentActivity = [
+//     { type: 'Atualização', content: 'Cerebro robo', likes: 0, comments: 0, shares: 0, time: '16 ago' },
+//     { type: 'Atualização', content: 'Novo teste', likes: 0, comments: 0, shares: 0, time: '16 ago' },
+//     { type: 'Atualização', content: 'Lançamos nossa nova funcionalidade de análise de risco em tempo real! A tecnologia permite aprovação de crédito em menos de 2 minutos. O futuro do fintech é agora!', likes: 0, comments: 0, shares: 0, time: '16 ago' },
+// ];
 
-const suggestedConnections = []; // Array vazio para simular "nenhuma sugestão"
+// const suggestedConnections = []; // Array vazio para simular "nenhuma sugestão"
+
+const props = defineProps({
+    stats: Object,
+    recentActivity: Array,
+    suggestedConnections: Array,
+});
+
 </script>
 
 <template>

@@ -16,12 +16,12 @@ Este diagrama ilustra a arquitetura de alto nível do StartupConnect.
 
 ```mermaid
 graph TD
-    A[Usuário] --> B{Browser};
-    B --> C[<B>Frontend</B><br>(Vue.js + Inertia.js + TailwindCSS)];
-    C <--> D[<B>Backend</B><br>(Laravel API & Web Routes)];
-    D --> E[<B>Banco de Dados</B><br>(MySQL)];
-    D --> F[<B>Serviços Externos</B><br>(IA para Sugestão de Eventos)];
-```
+    A[Usuário] --> B[Browser]
+    B --> C[Frontend: Vue.js, Inertia.js, TailwindCSS]
+    C <--> D[Backend: Laravel API & Web Routes]
+    D --> E[Banco de Dados: MySQL]
+    D --> F[Serviços Externos: IA para Sugestão de Eventos]
+```    
 
 ## Funcionalidades Principais
 

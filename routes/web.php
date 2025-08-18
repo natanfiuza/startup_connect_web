@@ -20,5 +20,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profiles/{user}', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/discover', [\App\Http\Controllers\DiscoverController::class, 'index'])->name('discover');
+    Route::post('/users/{user}/follow', [\App\Http\Controllers\ConnectionController::class, 'store'])->name('users.follow');
+    Route::delete('/users/{user}/unfollow', [\App\Http\Controllers\ConnectionController::class, 'destroy'])->name('users.unfollow');
 
 });

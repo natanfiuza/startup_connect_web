@@ -1,5 +1,7 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import { usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
 import {
     ChartBarIcon,
     HomeIcon,
@@ -12,11 +14,20 @@ import {
     StarIcon,
 } from '@heroicons/vue/24/outline';
 
-const user = {
-    name: 'Usuário',
-    title: 'Fundador de Startup',
-    initials: 'U',
-};
+
+// Acessa as propriedades da página (incluindo dados do usuário)
+const page = usePage();
+
+// Cria uma variável reativa para o usuário logado
+const user = computed(() => page.props.auth.user);
+
+// Cria uma variável reativa para as iniciais do nome do usuário
+const userInitials = computed(() => {
+    if (user.value && user.value.name) {
+        return user.value.name.charAt(0).toUpperCase();
+    }
+    return '';
+});
 
 const stats = {
     connections: 127,
@@ -30,7 +41,7 @@ const stats = {
             <div class="px-8 py-6">
                 <div class="flex items-center space-x-3">
                     <div class="p-2 bg-primary rounded-lg text-white">
-                        <ChartBarIcon class="h-6 w-6" />
+                        <img src="/assets/img/logo.svg" class="h-6 w-6" />
                     </div>
                     <h1 class="text-xl font-bold text-gray-800">StartupConnect</h1>
                 </div>
@@ -45,11 +56,12 @@ const stats = {
                 <HomeIcon class="h-5 w-5 mr-3" />
                 Dashboard
                 </Link>
-                <a href="#"
-                    class="mt-1 flex items-center px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
-                    <MagnifyingGlassIcon class="h-5 w-5 mr-3" />
-                    Descobrir
-                </a>
+                <Link :href="route('discover')"
+                    class="mt-1 flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200"
+                    :class="{ 'bg-primary text-white': route().current('discover'), 'text-gray-700 hover:bg-gray-100': !route().current('discover') }">
+                <MagnifyingGlassIcon class="h-5 w-5 mr-3" />
+                Descobrir
+                </Link>
                 <a href="#"
                     class="mt-1 flex items-center px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg">
                     <ChatBubbleLeftRightIcon class="h-5 w-5 mr-3" />
@@ -90,14 +102,14 @@ const stats = {
                 <div class="flex items-center">
                     <div
                         class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
-                        {{ user.initials }}
+                        {{ userInitials }}
                     </div>
                     <div class="ml-3">
                         <Link :href="route('profile.show', $page.props.auth.user.id)"
                             class="block hover:bg-gray-50 transition-colors">
                         <p class="text-sm font-semibold text-gray-800">{{ user.name }}</p>
                         </Link>
-                        <p class="text-xs text-gray-500">{{ user.title }}</p>
+                        <p class="text-xs text-gray-500">{{ user.email }}</p>
                     </div>
                     <Link :href="route('logout')" method="post" as="button"
                         class="ml-4 text-gray-400 hover:text-primary transition-colors" title="Sair">

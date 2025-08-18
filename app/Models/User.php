@@ -80,4 +80,19 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+    /**
+     * Os usuários que este usuário segue (following).
+     */
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'connections', 'follower_id', 'following_id');
+    }
+
+    /**
+     * Os usuários que seguem este usuário (followers).
+     */
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'connections', 'following_id', 'follower_id');
+    }
 }

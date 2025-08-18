@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -61,7 +60,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
     }
     /**
@@ -70,5 +69,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+    /**
+     * Get the profile associated with the user.
+     *
+     * @return <\App\Models\Profile>
+     *
+     */
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\FundingStage;
+use App\Models\Sector;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -39,6 +41,8 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             //
             'canResetPassword' => \Illuminate\Support\Facades\Route::has('password.request'),
+            'fundingStages' => FundingStage::all(),
+            'sectors' => Sector::query()->select('id', 'name')->get(),
 
         ];
     }

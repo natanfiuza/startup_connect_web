@@ -4,6 +4,7 @@ import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
     profileUser: Object,
+    isFollowing: Boolean,
 });
 
 const userInitials = props.profileUser.name.charAt(0);
@@ -28,10 +29,21 @@ const userInitials = props.profileUser.name.charAt(0);
                             <h1 class="text-2xl font-bold text-gray-800">{{ profileUser.name }}</h1>
                             <p class="text-gray-500">{{ profileUser.profile?.startup_name ?? 'Nome da startup não informado' }}</p>
                         </div>
-                        <button
-                            class="bg-primary text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-colors">
+                        <div class="ml-4 flex-1">
+                        </div>
+
+                        <div v-if="profileUser.id !== $page.props.auth.user.id">
+                            <Link v-if="isFollowing" :href="route('users.unfollow', profileUser.id)" method="delete"
+                                as="button" preserve-scroll
+                                class="bg-gray-200 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-300 transition-colors">
+                            Conectado
+                            </Link>
+                            <Link v-else :href="route('users.follow', profileUser.id)" method="post" as="button"
+                                preserve-scroll
+                                class="bg-primary text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-colors">
                             Conectar
-                        </button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

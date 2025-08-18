@@ -39,9 +39,12 @@ class ProfileController extends Controller
     {
         // Carrega o usuário com seus dados de perfil e as relações do perfil
         $user->load(['profile.sector', 'profile.fundingStage']);
+        $isFollowing = auth()->user() ? auth()->user()->following->contains($user->id) : false;
 
         return Inertia::render('Profile/View', [
             'profileUser' => $user,
+            'isFollowing' => $isFollowing,
+
         ]);
     }
 

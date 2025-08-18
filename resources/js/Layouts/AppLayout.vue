@@ -93,7 +93,10 @@ const stats = {
                         {{ user.initials }}
                     </div>
                     <div class="ml-3">
+                        <Link :href="route('profile.show', $page.props.auth.user.id)"
+                            class="block hover:bg-gray-50 transition-colors">
                         <p class="text-sm font-semibold text-gray-800">{{ user.name }}</p>
+                        </Link>
                         <p class="text-xs text-gray-500">{{ user.title }}</p>
                     </div>
                     <Link :href="route('logout')" method="post" as="button"
